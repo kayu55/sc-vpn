@@ -1039,10 +1039,10 @@ ${limits}
 ${wanted_by}
 EOF
 }
-create_service "vmess" "AryaTunnel Server Xray Instance" "/usr/local/bin/xray run -config /etc/xray/vmess/%i.json"
-create_service "vless" "AryaTunnel Server Xray Instance" "/usr/local/bin/xray run -config /etc/xray/vless/%i.json"
-create_service "trojan" "AryaTunnel Server Xray Instance" "/usr/local/bin/xray run -config /etc/xray/trojan/%i.json"
-create_service "shadowsocks" "AryaTunnel Server Shadowsocks Instance" "/usr/local/bin/xray run -config /etc/xray/shadowsocks/%i.json"
+create_service "vmess" "arya Server Xray Instance" "/usr/local/bin/xray run -config /etc/xray/vmess/%i.json"
+create_service "vless" "arya Server Xray Instance" "/usr/local/bin/xray run -config /etc/xray/vless/%i.json"
+create_service "trojan" "arya Server Xray Instance" "/usr/local/bin/xray run -config /etc/xray/trojan/%i.json"
+create_service "shadowsocks" "arya Server Shadowsocks Instance" "/usr/local/bin/xray run -config /etc/xray/shadowsocks/%i.json"
 
 cat >/etc/systemd/system/xray@.service.d/10-donot_touch_single_conf.conf <<EOF
 [Service]
