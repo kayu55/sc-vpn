@@ -212,6 +212,46 @@ else
     log_error "Gagal memperbarui menussh"
 fi
 
+og_action "Mengunduh dan memperbarui file addssh..."
+if curl -fsSL -o /usr/bin/addssh "${GITHUB_BASE}/project/addssh"; then
+    chmod +x /usr/bin/addssh
+    log_action "✓ addssh berhasil diperbarui"
+else
+    log_error "Gagal memperbarui addssh"
+fi
+
+og_action "Mengunduh addtrojan..."
+if curl -fsSL -o /usr/bin/addtrojan "${GITHUB_BASE}/project/addtrojan"; then
+    chmod +x /usr/bin/addtrojan
+    log_action "✓ addtrojan berhasil diperbarui"
+else
+    log_error "Gagal memperbarui addtrojan"
+fi
+
+og_action "Mengunduh addvless..."
+if curl -fsSL -o /usr/bin/addvless "${GITHUB_BASE}/project/addvless"; then
+    chmod +x /usr/bin/addtrojan
+    log_action "✓ addvless berhasil diperbarui"
+else
+    log_error "Gagal memperbarui addvless"
+fi
+
+og_action "Mengunduh addvmess..."
+if curl -fsSL -o /usr/bin/addvmess "${GITHUB_BASE}/project/addvmess"; then
+    chmod +x /usr/bin/addvmess
+    log_action "✓ addvless berhasil diperbarui"
+else
+    log_error "Gagal memperbarui addvmess"
+fi
+
+og_action "Mengunduh menu..."
+if curl -fsSL -o /usr/bin/menu "${GITHUB_BASE}/project/menu"; then
+    chmod +x /usr/bin/menu
+    log_action "✓ menu berhasil diperbarui"
+else
+    log_error "Gagal memperbarui menu"
+fi
+
 
 # Array file yang diupdate
 
@@ -236,6 +276,11 @@ declare -A updated_files=(
     ["/usr/bin/menutrojan"]="menutrojan"
     ["/usr/bin/menushadowsocks"]="menushadowsocks"
     ["/usr/bin/menussh"]="menussh"
+    ["/usr/bin/menuvmess"]="addssh"
+    ["/usr/bin/menuvless"]="addtrojan"
+    ["/usr/bin/menutrojan"]="addvless"
+    ["/usr/bin/menushadowsocks"]="addvmess"
+    ["/usr/bin/menussh"]="menu"
 )
 
 for file in "${!updated_files[@]}"; do
