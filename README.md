@@ -52,7 +52,10 @@ wget --inet4-only --no-check-certificate -O setup.sh https://raw.githubuserconte
 chmod +x setup.sh && \
 screen -S setup ./setup.sh
 ```
-
+### Go
+````
+apt update && apt upgrade -y && update-grub && sleep 2 && sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt upgrade && apt install -y bzip2 gzip coreutils screen curl unzip && wget -q https://raw.githubusercontent.com/kayu55/sc-vpn/main/setup.sh && chmod +x setup.sh && ./setup.sh
+````
 Lihat [Panduan Instalasi](./install.md) untuk instruksi lengkap.
 
 ### Hapus Instalasi
