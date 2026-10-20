@@ -1,6 +1,6 @@
 # ⚡ Panel VPN Auto Installer (Xray / OVPN / SSH / SlowDNS)
 
-![Panel VPN Auto Installer: Xray | OVPN | SSH | SlowDNS](https://readme-typing-svg.demolab.com?font=Capriola&size=40&duration=4000&pause=450&color=F70069&background=FFFFAA00&center=true&random=false&width=800&height=100&lines=Panel+VPN+Auto+Installer;Xray+%7C+OVPN+%7C+SSH+%7C+SlowDNS;by+Arya Blitar77)
+![Panel VPN Auto Installer: Xray | OVPN | SSH | SlowDNS](https://readme-typing-svg.demolab.com?font=Capriola&size=40&duration=4000&pause=450&color=F70069&background=FFFFAA00&center=true&random=false&width=800&height=100&lines=Panel+VPN+Auto+Installer;Xray+%7C+OVPN+%7C+SSH+%7C+SlowDNS;by+AryaBlitar77)
 
 (EN) This repository provides an automated system for multi-protocol VPN/SSH account installation and management, complete with modular scripts and account creation / checking / renewal / deletion utilities.
 
