@@ -107,7 +107,6 @@ clear
 
 echo -e ""
 echo -e "\033[0;32m Sc By Arya Blitar${NC}"
-fi
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 menussh
