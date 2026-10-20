@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Upload File</title>
-        <link rel="icon" href="https://raw.githubusercontent.com/kayu55/menu/main/menua.jpg" type="image/x-icon">
+        <link rel="icon" href="https://github.com/kayu55/sc-vpn/raw/main/logo.png" type="image/x-icon">
         <style>
             body {
                 font-family: Arial, sans-serif;
