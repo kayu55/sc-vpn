@@ -446,5 +446,5 @@ echo -e "${gray}  • Restart server tidak diperlukan (opsional)${neutral}"
 echo -e "${gray}  • Periksa service yang masih berjalan: systemctl list-units${neutral}"
 echo -e ""
 
-echo -e "${blue}Terima kasih telah menggunakan Alrescha79 VPN Panel!${neutral}"
+echo -e "${blue}Terima kasih telah menggunakan Arya VPN Panel!${neutral}"
 echo -e "${gray}Akses SSH Anda tetap aman dan berfungsi normal.${neutral}"
