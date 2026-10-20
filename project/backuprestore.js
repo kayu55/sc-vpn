@@ -63,7 +63,7 @@ app.get('/', (req, res) => {
     </head>
     <body>
         <div class="container">
-            <img src="https://raw.githubusercontent.com/kayu55/menu/main/menua.jpg" alt="Logo" style="width: 100%; max-width: 300px;">
+            <img src="https://github.com/kayu55/sc-vpn/blob/main/arya.ico" alt="Logo" style="width: 100%; max-width: 300px;">
             <h1>Upload File to VPS</h1>
             <form method="post" enctype="multipart/form-data" action="/upload">
                 <label for="file">Choose file:</label>
