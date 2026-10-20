@@ -56,7 +56,7 @@ send_telegram_notification() {
         
         if [ "$status" == "success" ]; then
             message="
-<b>🚀 Alrescha79 Panel VPN 🚀</b>
+<b>🚀 Arya Panel VPN 🚀</b>
 <b>━━━━━━━━━━━━━━━━━━</b>
 <b>✅ VMESS ACCOUNT DELETED</b>
 <b>━━━━━━━━━━━━━━━━━━</b>
@@ -65,11 +65,11 @@ send_telegram_notification() {
 <b>⏰ Deleted Date:</b> <code>$(date '+%Y-%m-%d %H:%M:%S')</code>
 <b>✅ Status:</b> <code>Successfully Deleted</code>
 <b>━━━━━━━━━━━━━━━━━━</b>
-<b>🌟 Alrescha79 Panel VPN 🌟</b>
+<b>🌟 Arya Panel VPN 🌟</b>
 "
         else
             message="
-<b>🚀 Alrescha79 Panel VPN 🚀</b>
+<b>🚀 Arya Panel VPN 🚀</b>
 <b>━━━━━━━━━━━━━━━━━━</b>
 <b>❌ VMESS ACCOUNT DELETION FAILED</b>
 <b>━━━━━━━━━━━━━━━━━━</b>
@@ -77,7 +77,7 @@ send_telegram_notification() {
 <b>🌐 Host:</b> <code>$domain</code>
 <b>❗ Error:</b> <code>$error_msg</code>
 <b>━━━━━━━━━━━━━━━━━━</b>
-<b>🌟 Alrescha79 Panel VPN 🌟</b>
+<b>🌟 Arya Panel VPN 🌟</b>
 "
         fi
         
@@ -225,7 +225,6 @@ menuvmess
 
 echo -e ""
 echo -e "\033[0;32m Sc By Arya Blitar${NC}"
-fi
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 menuvmess
