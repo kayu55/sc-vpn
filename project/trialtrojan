@@ -133,9 +133,7 @@ clear
 
 # User data input
 print_rainbow "══════════════════════════════════════════════════════════════════════"
-print_rainbow "                     Script by ARYA Panel VPN"
-print_rainbow "                     Input xray/trojan account"
-print_rainbow "                         Enter User Data  "
+print_rainbow "        Script by Arya Blitar"
 print_rainbow "══════════════════════════════════════════════════════════════════════"
 
 # Generate random username

@@ -226,12 +226,8 @@ menuvless
 
 
 echo -e ""
-echo -e "${green}╔═══════════════════════════════════════════════════════════════════════╗${neutral}"
-echo -e "${green}║                    Terima kasih telah menggunakan                     ║${neutral}"
-echo -e "${green}║                       ARYA VPN PANEL                            ║${neutral}"
-echo -e "${green}║                                                                       ║${neutral}"
-echo -e "${green}║                 📱 Telegram: https://t.me/Blitarku45                  ║${neutral}"
-echo -e "${green}║                                                                       ║${neutral}"
-echo -e "${green}║            Ketik perintah ${yellow}menu${green} untuk membuka panel kembali            ║${neutral}"
-echo -e "${green}╚═══════════════════════════════════════════════════════════════════════╝${neutral}"
-echo -e ""
+echo -e "\033[0;32m Sc By Arya Blitar${NC}"
+fi
+echo ""
+read -n 1 -s -r -p "   Press any key to back on menu"
+menuvless

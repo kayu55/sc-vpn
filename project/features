@@ -602,7 +602,7 @@ uninstall_panel_vpn() {
     echo -e ""
     echo -e "${neutral} ${green}Step 2:${neutral} Jalankan perintah berikut:"
     echo -e "${neutral}                                                                       ${neutral}"
-    echo -e "${neutral} ${blue}wget https://raw.githubusercontent.com/alrescha79-cmd/sc-vpn/main/uninstall.sh && chmod +x uninstall.sh && sudo ./uninstall.sh${neutral} "
+    echo -e "${neutral} ${blue}wget https://raw.githubusercontent.com/kayu55/sc-vpn/main/uninstall.sh && chmod +x uninstall.sh && sudo ./uninstall.sh${neutral} "
     echo -e ""
     echo -e "${orange}╠═══════════════════════════════════════════════════════════════════════╣${neutral}"
     echo -e "${neutral} ${yellow}CATATAN PENTING:${neutral}"
@@ -685,14 +685,7 @@ display_features() {
             14) read -p " Apakah Anda yakin ingin reboot server? (y/n): " ans; [[ $ans =~ ^[Yy]$ ]] && reboot ;;
             x|X)
                 echo -e ""
-                echo -e "${green}╔═══════════════════════════════════════════════════════════════════════╗${neutral}"
-                echo -e "${green}║                    Terima kasih telah menggunakan                     ║${neutral}"
-                echo -e "${green}║                       ARYA VPN PANEL                            ║${neutral}"
-                echo -e "${green}║                                                                       ║${neutral}"
-                echo -e "${green}║                 📱 Telegram: https://t.me/Blitarku45                  ║${neutral}"
-                echo -e "${green}║                                                                       ║${neutral}"
-                echo -e "${green}║            Ketik perintah ${yellow}menu${green} untuk membuka panel kembali            ║${neutral}"
-                echo -e "${green}╚═══════════════════════════════════════════════════════════════════════╝${neutral}"
+                echo -e "${green} UPLOAD BY ARYA BLITAR${neutral}"
                 return
                 ;;
             *)

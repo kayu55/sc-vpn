@@ -113,7 +113,7 @@ send_telegram_notification() {
 <b>🔗 gRPC Link:</b>
 <code>$ss_link_grpc</code>
 <b>━━━━━━━━━━━━━━━━━━</b>
-<b>🌟 Alrescha79 Panel VPN 🌟</b>
+<b>🌟 Arya Panel VPN 🌟</b>
 "
         else
             message="
@@ -126,7 +126,7 @@ send_telegram_notification() {
 <b>🌐 Host:</b> <code>$domain</code>
 <b>❗ Error:</b> <code>$error_msg</code>
 <b>━━━━━━━━━━━━━━━━━━</b>
-<b>🌟 Alrescha79 Panel VPN 🌟</b>
+<b>🌟 Arya Panel VPN 🌟</b>
 "
     fi
     
@@ -536,12 +536,8 @@ echo -e "Expires On   : ${exp}"
 
 
 echo -e ""
-echo -e "${green}╔═══════════════════════════════════════════════════════════════════════╗${neutral}"
-echo -e "${green}║                    Terima kasih telah menggunakan                     ║${neutral}"
-echo -e "${green}║                       ARYA VPN PANEL                            ║${neutral}"
-echo -e "${green}║                                                                       ║${neutral}"
-echo -e "${green}║                 📱 Telegram: https://t.me/Blitarku45                  ║${neutral}"
-echo -e "${green}║                                                                       ║${neutral}"
-echo -e "${green}║            Ketik perintah ${yellow}menu${green} untuk membuka panel kembali            ║${neutral}"
-echo -e "${green}╚═══════════════════════════════════════════════════════════════════════╝${neutral}"
-echo -e ""
+echo -e "\033[0;32m Sc By Arya Blitar${NC}"
+fi
+echo ""
+read -n 1 -s -r -p "   Press any key to back on menu"
+menu

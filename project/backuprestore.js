@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Upload File</title>
-        <link rel="icon" href="https://github.com/joytun21/gabut/blob/main/image/gerhanatunnel.ico" type="image/x-icon">
+        <link rel="icon" href="https://raw.githubusercontent.com/kayu55/menu/main/menua.jpg" type="image/x-icon">
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -63,7 +63,7 @@ app.get('/', (req, res) => {
     </head>
     <body>
         <div class="container">
-            <img src="https://github.com/joytun21/gabut/raw/main/image/logo.png" alt="Logo" style="width: 100%; max-width: 300px;">
+            <img src="https://raw.githubusercontent.com/kayu55/menu/main/menua.jpg" alt="Logo" style="width: 100%; max-width: 300px;">
             <h1>Upload File to VPS</h1>
             <form method="post" enctype="multipart/form-data" action="/upload">
                 <label for="file">Choose file:</label>

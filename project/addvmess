@@ -235,73 +235,81 @@ fi
 
 # Create configuration file for OpenClash
 cat >/var/www/html/vmess-$user.txt <<-END
-══════════════════════════════════════════════════════════════════════
-# Format Vmess WS (CDN)
-══════════════════════════════════════════════════════════════════════
+====================
+BY ARYA NBC
+wa.me/6281450330727
+====================
 
-- name: Vmess-$user-WS (CDN)
-  type: vmess
-  server: ${domain}
-  port: 443
-  uuid: ${uuid}
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ${domain}
-  network: ws
-  ws-opts:
-    path: /whatever/vmess
-    headers:
-      Host: ${domain}
-══════════════════════════════════════════════════════════════════════
-# Format Vmess WS (CDN) Non TLS
-══════════════════════════════════════════════════════════════════════
+# Format Vmess WS TLS
 
-- name: Vmess-$user-WS (CDN) Non TLS
-  type: vmess
-  server: ${domain}
-  port: 80
-  uuid: ${uuid}
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  servername: ${domain}
-  network: ws
-  ws-opts:
-    path: /whatever/vmess
-    headers:
-      Host: ${domain}
-══════════════════════════════════════════════════════════════════════
-# Format Vmess gRPC (SNI)
-══════════════════════════════════════════════════════════════════════
+proxies:
+  - name: Vmess-$user-WS TLS
+    server: bug.com
+    port: 443
+    type: vmess
+    uuid: ${uuid}
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: ${domain}
+    network: ws
+    ws-opts:
+      path: /whatever/vmess
+      headers:
+        Host: ${domain}
+    udp: true
 
-- name: Vmess-$user-gRPC (SNI)
-  server: ${domain}
-  port: 443
-  type: vmess
-  uuid: ${uuid}
-  alterId: 0
-  cipher: auto
-  network: grpc
-  tls: true
-  servername: ${domain}
-  skip-cert-verify: true
-  grpc-opts:
-    grpc-service-name: vmess-grpc
+# Format Vmess WS Non TLS
 
-══════════════════════════════════════════════════════════════════════
-# Vmess Account Links
-══════════════════════════════════════════════════════════════════════
-TLS Link : vmess://${uuid}@${domain}:443?encryption=auto&security=tls&sni=${domain}&type=ws&host=${domain}&path=%2Fwhatever%2Fvmess#${user}
-══════════════════════════════════════════════════════════════════════
-Non-TLS Link : vmess://${uuid}@${domain}:80?encryption=auto&security=none&type=ws&host=${domain}&path=%2Fwhatever%2Fvmess#${user}
-══════════════════════════════════════════════════════════════════════
-GRPC Link : vmess://${uuid}@${domain}:443?encryption=auto&security=tls&type=grpc&serviceName=vmess-grpc&sni=${domain}#${user}
-══════════════════════════════════════════════════════════════════════
+proxies:
+  - name: Vmess-$user-WS Non TLS
+    server: bug.com
+    port: 80
+    type: vmess
+    uuid: ${uuid}
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: ${domain}
+    network: ws
+    ws-opts:
+      path: /whatever/vmess
+      headers:
+        Host: ${domain}
+    udp: true
+
+# Format Vmess gRPC
+
+proxies:
+  - name: Vmess-$user-gRPC (SNI)
+    server: ${domain}
+    port: 443
+    type: vmess
+    uuid: ${uuid}
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: bug.com
+    network: grpc
+    grpc-opts:
+      grpc-service-name: vmess-grpc
+    udp: true
+    
+================
+ Link Akun Vmess                   
+================
+Link TLS         : 
+${vmesslink1}
+================
+Link none TLS    : 
+${vmesslink2}
+================
+Link GRPC        : 
+${vmesslink3}
+================
 
 END
 
@@ -449,15 +457,9 @@ echo -e "═══════════════════════�
 echo -e "OpenClash Format : https://${domain}:81/vmess-$user.txt"
 echo -e "══════════════════════════════════════════════════════════════════════"
 echo -e "Expires On  : $exp"
-
-
 echo -e ""
-echo -e "${green}╔═══════════════════════════════════════════════════════════════════════╗${neutral}"
-echo -e "${green}║                    Terima kasih telah menggunakan                     ║${neutral}"
-echo -e "${green}║                       ARYA VPN PANEL                            ║${neutral}"
-echo -e "${green}║                                                                       ║${neutral}"
-echo -e "${green}║                 📱 Telegram: https://t.me/Blitarku45                  ║${neutral}"
-echo -e "${green}║                                                                       ║${neutral}"
-echo -e "${green}║            Ketik perintah ${yellow}menu${green} untuk membuka panel kembali            ║${neutral}"
-echo -e "${green}╚═══════════════════════════════════════════════════════════════════════╝${neutral}"
-echo -e ""
+echo -e "\033[0;32m Sc By Arya Blitar${NC}"
+fi
+echo ""
+read -n 1 -s -r -p "   Press any key to back on menu"
+menuvmess

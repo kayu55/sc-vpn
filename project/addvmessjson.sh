@@ -129,73 +129,81 @@ EOF
 
 # Create configuration file for OpenClash
 cat >/var/www/html/vmess-$user.txt <<-END
-══════════════════════════════════════════════════════════════════════
-# Format Vmess WS (CDN)
-══════════════════════════════════════════════════════════════════════
+====================
+BY ARYA NBC
+wa.me/6281450330727
+====================
 
-- name: Vmess-$user-WS (CDN)
-  type: vmess
-  server: ${domain}
-  port: 443
-  uuid: ${uuid}
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ${domain}
-  network: ws
-  ws-opts:
-    path: /whatever/vmess
-    headers:
-      Host: ${domain}
-══════════════════════════════════════════════════════════════════════
-# Format Vmess WS (CDN) Non TLS
-══════════════════════════════════════════════════════════════════════
+# Format Vmess WS TLS
 
-- name: Vmess-$user-WS (CDN) Non TLS
-  type: vmess
-  server: ${domain}
-  port: 80
-  uuid: ${uuid}
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  servername: ${domain}
-  network: ws
-  ws-opts:
-    path: /whatever/vmess
-    headers:
-      Host: ${domain}
-══════════════════════════════════════════════════════════════════════
-# Format Vmess gRPC (SNI)
-══════════════════════════════════════════════════════════════════════
+proxies:
+  - name: Vmess-$user-WS TLS
+    server: bug.com
+    port: 443
+    type: vmess
+    uuid: ${uuid}
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: ${domain}
+    network: ws
+    ws-opts:
+      path: /whatever/vmess
+      headers:
+        Host: ${domain}
+    udp: true
 
-- name: Vmess-$user-gRPC (SNI)
-  server: ${domain}
-  port: 443
-  type: vmess
-  uuid: ${uuid}
-  alterId: 0
-  cipher: auto
-  network: grpc
-  tls: true
-  servername: ${domain}
-  skip-cert-verify: true
-  grpc-opts:
-    grpc-service-name: vmess-grpc
+# Format Vmess WS Non TLS
 
-══════════════════════════════════════════════════════════════════════
-# Vmess Account Links
-══════════════════════════════════════════════════════════════════════
-TLS Link : vmess://$(base64 -w 0 /etc/xray/vmess/$user-tls.json)
-══════════════════════════════════════════════════════════════════════
-Non-TLS Link : vmess://$(base64 -w 0 /etc/xray/vmess/$user-non.json)
-══════════════════════════════════════════════════════════════════════
-GRPC Link : vmess://$(base64 -w 0 /etc/xray/vmess/$user-grpc.json)
-══════════════════════════════════════════════════════════════════════
+proxies:
+  - name: Vmess-$user-WS Non TLS
+    server: bug.com
+    port: 80
+    type: vmess
+    uuid: ${uuid}
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: ${domain}
+    network: ws
+    ws-opts:
+      path: /whatever/vmess
+      headers:
+        Host: ${domain}
+    udp: true
+
+# Format Vmess gRPC
+
+proxies:
+  - name: Vmess-$user-gRPC (SNI)
+    server: ${domain}
+    port: 443
+    type: vmess
+    uuid: ${uuid}
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: bug.com
+    network: grpc
+    grpc-opts:
+      grpc-service-name: vmess-grpc
+    udp: true
+    
+================
+ Link Akun Vmess                   
+================
+Link TLS         : 
+${vmesslink1}
+================
+Link none TLS    : 
+${vmesslink2}
+================
+Link GRPC        : 
+${vmesslink3}
+================
 
 END
 

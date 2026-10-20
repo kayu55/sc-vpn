@@ -235,73 +235,79 @@ fi
 
 # Create configuration file for OpenClash
 cat >/var/www/html/vless-$user.txt <<-END
-══════════════════════════════════════════════════════════════════════
-# Format Vless WS (CDN)
-══════════════════════════════════════════════════════════════════════
+====================
+BY ARYA NBC
+wa.me/6281450330727
+====================
 
-- name: vless-$user-WS (CDN)
-  type: vless
-  server: ${domain}
-  port: 443
-  uuid: ${uuid}
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  servername: ${domain}
-  network: ws
-  ws-opts:
-    path: /whatever/vless
-    headers:
-      Host: ${domain}
-══════════════════════════════════════════════════════════════════════
-# Format Vless WS (CDN) Non TLS
-══════════════════════════════════════════════════════════════════════
+# Format Vless WS TLS
 
-- name: vless-$user-WS (CDN) Non TLS
-  type: vless
-  server: ${domain}
-  port: 80
-  uuid: ${uuid}
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  servername: ${domain}
-  network: ws
-  ws-opts:
-    path: /whatever/vless
-    headers:
-      Host: ${domain}
-══════════════════════════════════════════════════════════════════════
-# Format Vless gRPC (SNI)
-══════════════════════════════════════════════════════════════════════
+proxies:
+  - name: Vless-$user-WS TLS
+    server: bug.com
+    port: 443
+    type: vless
+    uuid: ${uuid}
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: ${domain}
+    network: ws
+    ws-opts:
+      path: /whatever/vless
+      headers:
+        Host: ${domain}
+    udp: true
 
-- name: vless-$user-gRPC (SNI)
-  server: ${domain}
-  port: 443
-  type: vless
-  uuid: ${uuid}
-  alterId: 0
-  cipher: auto
-  network: grpc
-  tls: true
-  servername: ${domain}
-  skip-cert-verify: true
-  grpc-opts:
-    grpc-service-name: vless-grpc
+# Format Vless WS Non TLS
 
-══════════════════════════════════════════════════════════════════════
-# vless Account Links
-══════════════════════════════════════════════════════════════════════
-TLS Link : vless://${uuid}@${domain}:443?path=%2Fwhatever%2Fvless&security=tls&encryption=none&host=${domain}&type=ws&sni=${domain}#${user}
-══════════════════════════════════════════════════════════════════════
-Non-TLS Link : vless://${uuid}@${domain}:80?path=%2Fwhatever%2Fvless&security=none&encryption=none&host=${domain}&type=ws#${user}
-══════════════════════════════════════════════════════════════════════
-GRPC Link : vless://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=${domain}#${user}
-══════════════════════════════════════════════════════════════════════
+proxies:
+  - name: Vless-$user-WS (CDN) Non TLS
+    server: bug.com
+    port: 80
+    type: vless
+    uuid: ${uuid}
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    servername: ${domain}
+    network: ws
+    ws-opts:
+      path: /whatever/vless
+      headers:
+        Host: ${domain}
+    udp: true
+    
+# Format Vless Grpc
+
+proxies:
+  - name: Vless-$user-WS (CDN) gRPC (SNI)
+    server: ${domain}
+    port: 443
+    type: vless
+    uuid: bdfb0d8c-b7a6-4549-bd8f-cecd9a92bbdc
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: bug.com
+    network: grpc
+    grpc-opts:
+      grpc-service-name: vless-grpc
+    udp: true
+
+====================
+Link Akun Vless 
+====================
+Link TLS      : 
+${vlesslink1}
+====================
+Link none TLS : 
+${vlesslink2}
+====================
+Link GRPC     : 
+${vlesslink3}
+====================
+
 
 END
 
@@ -449,15 +455,9 @@ echo -e "═══════════════════════�
 echo -e "OpenClash Format : https://${domain}:81/vless-$user.txt"
 echo -e "══════════════════════════════════════════════════════════════════════"
 echo -e "Expires On  : $exp"
-
-
 echo -e ""
-echo -e "${green}╔═══════════════════════════════════════════════════════════════════════╗${neutral}"
-echo -e "${green}║                    Terima kasih telah menggunakan                     ║${neutral}"
-echo -e "${green}║                       ARYA VPN PANEL                            ║${neutral}"
-echo -e "${green}║                                                                       ║${neutral}"
-echo -e "${green}║                 📱 Telegram: https://t.me/Blitarku45                  ║${neutral}"
-echo -e "${green}║                                                                       ║${neutral}"
-echo -e "${green}║            Ketik perintah ${yellow}menu${green} untuk membuka panel kembali            ║${neutral}"
-echo -e "${green}╚═══════════════════════════════════════════════════════════════════════╝${neutral}"
-echo -e ""
+echo -e "\033[0;32m Sc By Arya Blitar${NC}"
+fi
+echo ""
+read -n 1 -s -r -p "   Press any key to back on menu"
+menuvless

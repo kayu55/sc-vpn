@@ -132,10 +132,8 @@ echo -ne "\r${yellow}Premium Account Ready to be created!${reset}\n"
 sleep 1
 clear
 # User data input
-print_rainbow "┌══════════════════════════════════════════════════════════════════════"
-print_rainbow "                     Script by ARYA Panel VPN  "
-print_rainbow "                     Input xray/vless account deps"
-print_rainbow "                         Enter User Data       "
+print_rainbow "══════════════════════════════════════════════════════════════════════"
+print_rainbow "        Script by Arya Blitar"
 print_rainbow "══════════════════════════════════════════════════════════════════════"
 
 
