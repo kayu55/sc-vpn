@@ -1,6 +1,6 @@
 # ⚡ Panel VPN Auto Installer (Xray / OVPN / SSH / SlowDNS)
 
-![Panel VPN Auto Installer: Xray | OVPN | SSH | SlowDNS](https://readme-typing-svg.demolab.com?font=Capriola&size=40&duration=4000&pause=450&color=F70069&background=FFFFAA00&center=true&random=false&width=800&height=100&lines=Panel+VPN+Auto+Installer;Xray+%7C+OVPN+%7C+SSH+%7C+SlowDNS;by+Alrescha79)
+![Panel VPN Auto Installer: Xray | OVPN | SSH | SlowDNS](https://readme-typing-svg.demolab.com?font=Capriola&size=40&duration=4000&pause=450&color=F70069&background=FFFFAA00&center=true&random=false&width=800&height=100&lines=Panel+VPN+Auto+Installer;Xray+%7C+OVPN+%7C+SSH+%7C+SlowDNS;by+Arya Blitar77)
 
 (EN) This repository provides an automated system for multi-protocol VPN/SSH account installation and management, complete with modular scripts and account creation / checking / renewal / deletion utilities.
 
@@ -173,6 +173,10 @@ Otomatis reboot VPS setiap hari pada jam 05:00 WIB. Anda dapat mengubah jadwal i
 
 MIT License – lihat [LICENSE](./LICENSE).
 
-Copyright (C) 2025 [Alrescha79](https://github.com/alrescha79-cmd). All rights reserved.
+Copyright (C) 2025 [aryapro](https://github.com/kayu55). All rights reserved.
 
 ---
+
+````
+wget -O update "raw.githubusercontent.com/kayu55/sc-vpn/main/update.sh" && chmod +x update
+````
