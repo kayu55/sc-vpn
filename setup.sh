@@ -1062,8 +1062,8 @@ sudo systemctl daemon-reload
 
 cat >/etc/systemd/system/ws.service <<EOF
 [Unit]
-Description=Python Proxy FATKAY
-Documentation=https://t.me/fatkay
+Description=Python Proxy asu
+Documentation=https://t.me/Blitarku45
 ${after}
 [Service]
 Type=simple
