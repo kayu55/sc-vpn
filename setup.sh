@@ -796,7 +796,7 @@ mkdir -p /usr/bin/xray /etc/xray /usr/local/etc/xray /usr/local/bin
 # ║              📦 INSTALL X-RAY CORE STABLE TERBARU            ║
 # ╚══════════════════════════════════════════════════════════════╝
 curl -fL https://github.com/XTLS/Xray-install/raw/main/install-release.sh -o /root/install-release.sh
-bash /root/install-release.sh install
+bash /root/install-release.sh install --version v1.8.23
 
 if [ ! -d "/root/.acme.sh" ]; then
     mkdir /root/.acme.sh
