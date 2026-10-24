@@ -789,22 +789,9 @@ echo -e "\n${green}╔═══════════════════�
 echo -e "${green}║          ⚡ A R Y A  •  X R A Y  C O R E ⚡                 ║${NC}"
 echo -e "${green}║             Menggunakan rilis stabil terbaru                ║${NC}"
 echo -e "${green}╚══════════════════════════════════════════════════════════════╝${NC}"
-echo -e "${green}➜ Menyiapkan direktori Xray...${NC}"
-mkdir -p /usr/bin/xray /etc/xray /usr/local/etc/xray /usr/local/bin
-
-# ╔══════════════════════════════════════════════════════════════╗
-# ║              📦 INSTALL X-RAY CORE STABLE TERBARU            ║
-# ╚══════════════════════════════════════════════════════════════╝
-echo -e "\n${green}✦ Mengunduh installer resmi Xray dan memasang versi stabil terbaru...${NC}"
-if ! bash -c "$(curl -fsSL https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --version v1.8.23; then
-    echo -e "\n${NC}❌ Instalasi Xray gagal. Periksa koneksi internet dan log installer."
-    exit 1
-fi
-if [ ! -x /usr/local/bin/xray ]; then
-    echo -e "❌ Binary Xray tidak ditemukan di /usr/local/bin/xray. Instalasi dibatalkan.${NC}"
-    exit 1
-fi
-/usr/local/bin/xray version || exit 1
+# install vray
+curl -fL https://github.com/XTLS/Xray-install/raw/main/install-release.sh -o /root/install-release.sh
+bash /root/install-release.sh install --version v1.8.23
 
 if [ ! -d "/root/.acme.sh" ]; then
     mkdir /root/.acme.sh
