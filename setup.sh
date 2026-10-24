@@ -603,7 +603,7 @@ fi
 
 # Download Banner
 if [ -n "$banner_url" ]; then
-    wget -q -O /etc/gerhanatunnel.txt "$banner_url" && chmod +x /etc/arya.txt >/dev/null 2>&1 || echo -e "${red}Failed to download arya.txt${neutral}"
+    wget -q -O /etc/arya.txt "$banner_url" && chmod +x /etc/arya.txt >/dev/null 2>&1 || echo -e "${red}Failed to download arya.txt${neutral}"
 else
     echo -e "${yellow}banner_url is not set, skipping download of arya.txt${neutral}"
 fi
