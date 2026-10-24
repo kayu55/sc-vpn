@@ -180,6 +180,98 @@ if [ ! -x /usr/local/bin/xray ]; then
 fi
 /usr/local/bin/xray version || exit 1
 
+cat >/home/daily_reboot <<EOF
+5
+EOF
+
+# Systemd service templates
+capabilities="CAP_NET_ADMIN CAP_NET_BIND_SERVICE"
+limits="LimitNPROC=10000
+LimitNOFILE=1000000"
+restart="Restart=on-failure
+RestartPreventExitStatus=23"
+wanted_by="WantedBy=multi-user.target"
+after="After=network-online.target nss-lookup.target"
+wants="Wants=network-online.target"
+documentation="Documentation=https://t.me/Blitarku45"
+
+create_service() {
+    local name=$1
+    local description=$2
+    local exec_start=$3
+    cat >/etc/systemd/system/${name}@config.service <<EOF
+[Unit]
+Description=${description} %i
+${documentation}
+${wants}
+${after}
+[Service]
+User=www-data
+CapabilityBoundingSet=${capabilities}
+AmbientCapabilities=${capabilities}
+NoNewPrivileges=yes
+ExecStart=${exec_start}
+${restart}
+${limits}
+[Install]
+${wanted_by}
+EOF
+}
+create_service "vmess" "arya Server Xray Instance" "/usr/local/bin/xray run -config /etc/xray/vmess/%i.json"
+create_service "vless" "arya Server Xray Instance" "/usr/local/bin/xray run -config /etc/xray/vless/%i.json"
+create_service "trojan" "arya Server Xray Instance" "/usr/local/bin/xray run -config /etc/xray/trojan/%i.json"
+create_service "shadowsocks" "arya Server Shadowsocks Instance" "/usr/local/bin/xray run -config /etc/xray/shadowsocks/%i.json"
+
+cat >/etc/systemd/system/xray@.service.d/10-donot_touch_single_conf.conf <<EOF
+[Service]
+ExecStart=
+ExecStart=/usr/local/bin/xray run -config /etc/xray/%i.json
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl stop xray
+sudo systemctl disable xray
+sudo systemctl disable dropbear
+sudo systemctl stop dropbear
+rm -rf /lib/systemd/system/dropbear.service
+sudo systemctl daemon-reload
+/etc/init.d/dropbear start
+/etc/init.d/dropbear restart
+
+cat >/etc/systemd/system/ws.service <<EOF
+[Unit]
+Description=Python Proxy asu
+Documentation=https://t.me/Blitarku45
+${after}
+[Service]
+Type=simple
+User=root
+CapabilityBoundingSet=${capabilities}
+AmbientCapabilities=${capabilities}
+NoNewPrivileges=true
+ExecStart=/usr/bin/python3 -O /usr/bin/ws.py
+${restart}
+[Install]
+${wanted_by}
+EOF
+
+cat >/etc/systemd/system/udp.service <<EOF
+[Unit]
+Description=ePro Udp-Custom VPN Server By HC
+After=network.target
+[Service]
+User=root
+WorkingDirectory=/usr/bin
+ExecStart=/usr/bin/udp server -exclude 2200,7300,7200,7100,323,10008,10004 /usr/bin/config.json
+Environment=HYSTERIA_LOG_LEVEL=info
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
+NoNewPrivileges=true
+${limits}
+${restart}
+[Install]
+${wanted_by}
+EOF
 
 echo -e "[ ${GREEN}ok${NC} ] Enable & Start & Restart & Xray"
 systemctl daemon-reload >/dev/null 2>&1
