@@ -147,12 +147,6 @@ wget -q -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/kayu55/oso/m
 #wget -q -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/kayu55/aku/main/tools/vps.conf"
 
 #intall vray 
-echo -e "\n${green}╔═════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${green}║          ⚡ A R Y A  •  X R A Y  C O R E ⚡                 ║${NC}"
-echo -e "${green}║             Menggunakan rilis stabil terbaru                ║${NC}"
-echo -e "${green}╚═════════════════════════════════════════════════════════════╝${NC}"
-echo -e "${green}➜ Menyiapkan direktori Xray...${NC}"
-mkdir -p /usr/bin/xray /etc/xray /usr/local/etc/xray /usr/local/bin
 
 
 # nginx renew ssl
@@ -164,21 +158,9 @@ echo -n '#!/bin/bash
 ' > /usr/local/bin/ssl_renew.sh
 chmod +x /usr/local/bin/ssl_renew.sh
 if ! grep -q 'ssl_renew.sh' /var/spool/cron/crontabs/root;then (crontab -l;echo "15 03 */3 * * /usr/local/bin/ssl_renew.sh") | crontab;fi
-
-
-# ╔══════════════════════════════════════════════════════════════╗
-# ║              📦 INSTALL X-RAY CORE STABLE TERBARU            ║
-# ╚══════════════════════════════════════════════════════════════╝
-echo -e "\n${green}✦ Mengunduh installer resmi Xray dan memasang versi stabil terbaru...${NC}"
-if ! bash -c "$(curl -fsSL https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --version v1.8.23; then
-    echo -e "\n${NC}❌ Instalasi Xray gagal. Periksa koneksi internet dan log installer."
-    exit 1
-fi
-if [ ! -x /usr/local/bin/xray ]; then
-    echo -e "❌ Binary Xray tidak ditemukan di /usr/local/bin/xray. Instalasi dibatalkan.${NC}"
-    exit 1
-fi
-/usr/local/bin/xray version || exit 1
+# install vray
+curl -fL https://github.com/XTLS/Xray-install/raw/main/install-release.sh -o /root/install-release.sh
+bash /root/install-release.sh install --version v1.8.23
 
 cat >/home/daily_reboot <<EOF
 5
