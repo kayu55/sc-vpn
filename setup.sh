@@ -605,7 +605,7 @@ fi
 if [ -n "$banner_url" ]; then
     wget -q -O /etc/arya.txt "$banner_url" && chmod +x /etc/arya.txt >/dev/null 2>&1 || echo -e "${red}Failed to download arya.txt${neutral}"
 else
-    echo -e "${yellow}banner_url is not set, skipping download of arya.txt${neutral}"
+    echo -e "${yellow}banner_url is not set, skipping download of gerhanatunnel.txt${neutral}"
 fi
 
 # Download Common Password (hanya jika belum ada; jangan timpa konfigurasi bawaan sistem)
@@ -785,13 +785,11 @@ else
     echo -e "${red}Failed to save iptables rules${neutral}"
 fi
 
-echo -e "\n${green}╔═════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${green}║          ⚡ A R Y A  •  X R A Y  C O R E ⚡                 ║${NC}"
-echo -e "${green}║             Menggunakan rilis stabil terbaru                ║${NC}"
-echo -e "${green}╚══════════════════════════════════════════════════════════════╝${NC}"
-# install vray
-curl -fL https://github.com/XTLS/Xray-install/raw/main/install-release.sh -o /root/install-release.sh
-bash /root/install-release.sh install --version v1.8.23
+#intall vray 
+if [ ! -f /usr/local/bin/xray ]; then
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --version 1.8.23 || true
+fi
+chmod +x /usr/local/bin/xray
 
 if [ ! -d "/root/.acme.sh" ]; then
     mkdir /root/.acme.sh
