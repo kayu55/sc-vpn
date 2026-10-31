@@ -786,10 +786,8 @@ else
 fi
 
 #intall vray 
-if [ ! -f /usr/local/bin/xray ]; then
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --version 1.8.23 || true
-fi
-chmod +x /usr/local/bin/xray
+curl -fL https://github.com/XTLS/Xray-install/raw/main/install-release.sh -o /root/install-release.sh
+bash /root/install-release.sh install --version v1.8.23
 
 if [ ! -d "/root/.acme.sh" ]; then
     mkdir /root/.acme.sh
