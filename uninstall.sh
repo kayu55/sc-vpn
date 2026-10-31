@@ -175,7 +175,7 @@ vpn_config_files=(
     "/etc/default/dropbear"
     "/etc/init.d/dropbear"
     "/etc/dropbear/dropbear_dss_host_key"
-    "/etc/gerhanatunnel.txt"
+    "/etc/arya.txt"
     # "/etc/pam.d/common-password"  # ← DIHAPUS! Sistem penting
     "/var/www/html/client-tcp.ovpn"
     "/var/www/html/client-udp.ovpn"
