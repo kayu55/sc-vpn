@@ -69,7 +69,7 @@ date_list=$(date +"%Y-%m-%d" -d "$data_server")
                 "/etc/group"
                 "/etc/shadow"
                 "/etc/gshadow"
-                "/etc/gerhanatunnel.txt"
+                "/etc/arya.txt"
             )
 
             for file in "${files_to_backup[@]}"; do
@@ -116,7 +116,7 @@ date_list=$(date +"%Y-%m-%d" -d "$data_server")
                 "/root/restore/*/group"
                 "/root/restore/*/shadow"
                 "/root/restore/*/gshadow"
-                "/root/restore/*/gerhanatunnel.txt"
+                "/root/restore/*/arya.txt"
             )
             for file in "${files_to_restore[@]}"; do
                 cp -r $file /etc/xray/ >/dev/null 2>&1 || { echo "Failed to restore $file"; }
